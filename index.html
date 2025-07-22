@@ -11,7 +11,8 @@
             transition: max-height 0.3s ease-out;
         }
         .collapse-content.expanded {
-            max-height: 1000px;
+            max-height: 500px;
+            overflow-y: auto;
         }
         .rotate-180 {
             transform: rotate(180deg);
@@ -328,7 +329,7 @@
                         <div id="fav${i}-details" class="collapse-content mt-3">
                             <div class="text-sm text-gray-600 space-y-1">
                                 <p><strong>Address: </strong>${store.details.address}</p>
-                                <p><strong>Distance: </strong>${store.details.distance}</p>
+                                <p><strong>Distance: </strong>${store.details.distance} m</p>
                                 <p><strong>Business Hours: </strong>${store.details.open}</p>
                             </div>
                         </div>
@@ -378,7 +379,7 @@
                         <div id="store${i}-details" class="collapse-content mt-3">
                             <div class="text-sm text-gray-600 space-y-1">
                                 <p><strong>Address: </strong>${store.details.address}</p>
-                                <p><strong>Distance: </strong>${store.details.distance}</p>
+                                <p><strong>Distance: </strong>${store.details.distance} m</p>
                                 <p><strong>Opening: </strong>${store.details.open}</p>
                             </div>
                         </div>
