@@ -280,19 +280,7 @@
 
         async function addFavoriteStore(store, add){
             try{
-                const response = await fetch(backendAPI + "add_favorite", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        add: add,
-                        name: store.name,
-                        rating: store.rating,
-                        price: store.price,
-                        details: store.details
-                    })
-                });
+                const response = await fetch(backendAPI + "add_favorite?add=" + add + "&place_id=" + store.place_id);
                 if(!response.ok) throw new Error("Network response was not ok");
                 loadFavoriteStores();
             }catch(error){
@@ -351,11 +339,11 @@
             }
 
             const ns = document.getElementById("nearby-stores-content").firstElementChild;
-            ns.innerHTML = "";
             try{
                 const response = await fetch(backendAPI + "nearby_stores?lat=" + lat + "&lng=" + lng);
                 if(!response.ok) throw new Error("Network response was not ok");
                 const data = await response.json();
+                ns.innerHTML = "";
                 let i = 1;
                 data.forEach(store => {
                     const sd = document.createElement("div");
@@ -393,10 +381,22 @@
             }
         }
 
+        async function initLogin(){
+            try{
+                const response = await fetch(backendAPI + "init");
+                if (!response.ok) throw new Error("Network response was not ok");
+                const data = await response.json();
+                console.log("Initialization successful:", data);
+            }catch(error){
+                console.error("Error during initialization:", error);
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", function(){
             if(!navigator.geolocation){
                 alert("Geolocation is not supported by this browser.");
             }
+            initLogin();
             loadFavoriteStores();
             setInterval(() => {
                 loadNearbyStores();
