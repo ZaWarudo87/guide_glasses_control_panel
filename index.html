@@ -266,6 +266,17 @@
             }
         }
 
+        async function getGeoPos(){
+            return new Promise((resolve) => {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    resolve([position.coords.latitude, position.coords.longitude]);
+                }, function(error){
+                    alert("Error: " + error.message);
+                    resolve([0, 0]);
+                });
+            });
+        }
+
         async function addFavoriteStore(store, add){
             try{
                 const response = await fetch(backendAPI + "add_favorite", {
@@ -333,15 +344,11 @@
         }
 
         async function loadNearbyStores(){
-            let lat = 0, lng = 0, stop = false;
-            navigator.geolocation.getCurrentPosition(function(position) {
-                    lat = position.coords.latitude;
-                    lng = position.coords.longitude;
-                }, function(error){
-                    alert("Error: " + error.message);
-                    stop = true;
-            });
-            if(stop) return;
+            const [lat, lng] = await getGeoPos();
+            if(lat == 0 && lng == 0){
+                console.error("Failed to get current location.");
+                return;
+            }
 
             const ns = document.getElementById("nearby-stores-content").firstElementChild;
             ns.innerHTML = "";
