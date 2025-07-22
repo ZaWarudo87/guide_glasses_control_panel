@@ -388,6 +388,9 @@
         }
 
         document.addEventListener("DOMContentLoaded", function(){
+            if(!navigator.geolocation){
+                alert("Geolocation is not supported by this browser.");
+            }
             loadFavoriteStores();
             setInterval(() => {
                 loadNearbyStores();
