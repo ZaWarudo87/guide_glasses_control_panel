@@ -315,7 +315,7 @@
                                 <h3 class="font-semibold text-gray-800">${store.name}</h3>
                                 <div class="flex items-center space-x-4 text-sm text-gray-600">
                                     <span>☆ ${store.rating}</span>
-                                    <span>$ ${store.price}</span>
+                                    <span>${store.price}</span>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-2">
@@ -330,8 +330,6 @@
                                 <p><strong>Address: </strong>${store.details.address}</p>
                                 <p><strong>Distance: </strong>${store.details.distance}</p>
                                 <p><strong>Business Hours: </strong>${store.details.open}</p>
-                                <p><strong>Phone: </strong>${store.details.phone}</p>
-                                <p><strong>Features: </strong>${store.details.others}</p>
                             </div>
                         </div>
                     `;
@@ -366,7 +364,7 @@
                                 <h3 class="font-semibold text-gray-800">${store.name}</h3>
                                 <div class="flex items-center space-x-4 text-sm text-gray-600">
                                     <span>☆ ${store.rating}</span>
-                                    <span>$ ${store.price}</span>
+                                    <span>${store.price}</span>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-2">
@@ -380,9 +378,7 @@
                             <div class="text-sm text-gray-600 space-y-1">
                                 <p><strong>Address: </strong>${store.details.address}</p>
                                 <p><strong>Distance: </strong>${store.details.distance}</p>
-                                <p><strong>Business Hours: </strong>${store.details.open}</p>
-                                <p><strong>Phone: </strong>${store.details.phone}</p>
-                                <p><strong>Features: </strong>${store.details.others}</p>
+                                <p><strong>Opening: </strong>${store.details.open}</p>
                             </div>
                         </div>
                     `;
