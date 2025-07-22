@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Glasses Control Panel</title>
+    <script src="./web_files/saved_resource"></script>
+    <style>
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .collapse-content.expanded {
+            max-height: 1000px;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.flex{display:flex}.grid{display:grid}.h-3{height:0.75rem}.h-32{height:8rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-64{height:16rem}.min-h-screen{min-height:100vh}.w-32{width:8rem}.w-4{width:1rem}.w-5{width:1.25rem}.max-w-4xl{max-width:56rem}.flex-1{flex:1 1 0%}.-rotate-90{--tw-rotate:-90deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-dashed{border-style:dashed}.border-green-300{--tw-border-opacity:1;border-color:rgb(134 239 172 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-pink-500{--tw-bg-opacity:1;background-color:rgb(236 72 153 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-blue-50{--tw-gradient-from:#eff6ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(239 246 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-indigo-100{--tw-gradient-to:#e0e7ff var(--tw-gradient-to-position)}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8 / var(--tw-text-opacity, 1))}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.hover\:bg-pink-600:hover{--tw-bg-opacity:1;background-color:rgb(219 39 119 / var(--tw-bg-opacity, 1))}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen p-4">
+    <div class="max-w-4xl mx-auto space-y-4">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-8">Guide Glasses Control Panel</h1>
+        
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-4 border-b cursor-pointer" onclick="toggleSection(&#39;display-settings&#39;)">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-800">Display Settings</h2>
+                    <svg id="display-settings-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div id="display-settings-content" class="collapse-content">
+                <div class="p-4 grid grid-cols-2 gap-3">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" checked="" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Store Name</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" checked="" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Rating</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" checked="" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Price</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Store Details</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Current Weather</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Location</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Navigation Route</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 rounded">
+                        <span class="text-gray-700">Destination</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-4 border-b cursor-pointer" onclick="toggleSection(&#39;nearby-stores&#39;)">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-800">Nearby Stores</h2>
+                    <svg id="nearby-stores-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div id="nearby-stores-content" class="collapse-content expanded">
+                <div class="p-4 space-y-3"></div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-4 border-b cursor-pointer" onclick="toggleSection(&#39;favorite-stores&#39;)">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-800">Favorite Stores</h2>
+                    <svg id="favorite-stores-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div id="favorite-stores-content" class="collapse-content">
+                <div class="p-4">
+                    <p class="text-gray-500 text-center">None</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-4 border-b cursor-pointer" onclick="toggleSection(&#39;nearby-map&#39;)">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-800">Nearby Map</h2>
+                    <svg id="nearby-map-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div id="nearby-map-content" class="collapse-content expanded">
+                <div class="p-4">
+                    <div class="bg-green-100 rounded-lg h-64 flex items-center justify-center border-2 border-dashed border-green-300">
+                        <div class="text-center text-green-700">
+                            <div class="text-4xl mb-2">🗺️</div>
+                            <p class="font-semibold">Map Display Area</p>
+                            <p class="text-sm">Show Nearby Store Locations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-4 border-b cursor-pointer" onclick="toggleSection(&#39;safety-analysis&#39;)">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-800">Crossing Safety Analysis</h2>
+                    <svg id="safety-analysis-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div id="safety-analysis-content" class="collapse-content expanded">
+                <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="text-center">
+                        <h3 class="font-semibold text-gray-700 mb-3">Forgot to Check Oncoming Vehicle Ratio</h3>
+                        <div class="relative w-32 h-32 mx-auto">
+                            <svg class="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" stroke-width="3"></path>
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="25, 100"></path>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-xl font-bold text-red-500">25%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="font-semibold text-gray-700 mb-3">Forgot to Check Traffic Light Ratio</h3>
+                        <div class="relative w-32 h-32 mx-auto">
+                            <svg class="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" stroke-width="3"></path>
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="15, 100"></path>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-xl font-bold text-yellow-500">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <h3 class="font-semibold text-gray-700 mb-3 text-center">Most Overlooked Blind Spot Area</h3>
+                        <div class="bg-red-50 border-2 border-red-200 rounded-lg p-4 text-center">
+                            <div class="text-3xl mb-2">⚠️</div>
+                            <p class="text-red-700 font-semibold">右側轉彎處</p>
+                            <p class="text-red-600 text-sm">建議多注意右側來車</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-4 border-b cursor-pointer" onclick="toggleSection(&#39;step-counter&#39;)">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-800">Walking Steps</h2>
+                    <svg id="step-counter-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div id="step-counter-content" class="collapse-content expanded">
+                <div class="p-6 text-center">
+                    <div class="text-5xl font-bold text-blue-600 mb-2">8,247</div>
+                    <p class="text-gray-600 mb-4">Steps</p>
+                    <div class="bg-blue-100 rounded-full h-3 mb-2">
+                        <div class="bg-blue-500 h-3 rounded-full" style="width: 82%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500">Goal: 10,000 Steps (82%)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md">
+            <div class="p-4 border-b cursor-pointer" onclick="toggleSection(&#39;gaze-items&#39;)">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-800">Gaze Items Over Five Seconds</h2>
+                    <svg id="gaze-items-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+            <div id="gaze-items-content" class="collapse-content expanded">
+                <div class="p-4 space-y-3">
+                    <div class="border rounded-lg p-3 hover:bg-gray-50">
+                        <h3 class="font-semibold text-gray-800">iPhone 15 Pro</h3>
+                        <p class="text-sm text-gray-600 mt-1">Apple最新旗艦手機，配備A17 Pro晶片，支援USB-C接口，具備鈦金屬機身設計。</p>
+                        <div class="flex items-center mt-2 text-xs text-gray-500">
+                            <span>注視時間：8.5秒</span>
+                        </div>
+                    </div>
+                    
+                    <div class="border rounded-lg p-3 hover:bg-gray-50">
+                        <h3 class="font-semibold text-gray-800">Nike Air Max 270</h3>
+                        <p class="text-sm text-gray-600 mt-1">Nike經典氣墊跑鞋，採用Max Air氣墊技術，提供優異的緩震效果和舒適度。</p>
+                        <div class="flex items-center mt-2 text-xs text-gray-500">
+                            <span>注視時間：6.2秒</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const backendAPI = "http://140.113.95.112/";
+
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId + '-content');
+            const arrow = document.getElementById(sectionId + '-arrow');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                arrow.classList.remove('rotate-180');
+            } else {
+                content.classList.add('expanded');
+                arrow.classList.add('rotate-180');
+            }
+        }
+
+        function toggleStoreDetails(storeId) {
+            const details = document.getElementById(storeId + '-details');
+            const arrow = document.getElementById(storeId + '-arrow');
+            
+            if (details.classList.contains('expanded')) {
+                details.classList.remove('expanded');
+                arrow.classList.remove('rotate-180');
+            } else {
+                details.classList.add('expanded');
+                arrow.classList.add('rotate-180');
+            }
+        }
+
+        function toggleFavorite(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (e.target.classList.includes('bg-pink-500')) {
+                e.target.classList.remove('bg-pink-500', 'hover:bg-pink-600');
+                e.target.classList.add('bg-gray-500', 'hover:bg-gray-600');
+                addFavoriteStore(e.target.closest('.flex-1').querySelector('h3').textContent, true);
+            } else {
+                e.target.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+                e.target.classList.add('bg-pink-500', 'hover:bg-pink-600');
+                addFavoriteStore(e.target.closest('.flex-1').querySelector('h3').textContent, false);
+            }
+        }
+
+        async function addFavoriteStore(store, add){
+            try{
+                const response = await fetch(backendAPI + "add_favorite", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        add: add,
+                        name: store.name,
+                        rating: store.rating,
+                        price: store.price,
+                        details: store.details
+                    })
+                });
+                if(!response.ok) throw new Error("Network response was not ok");
+                loadFavoriteStores();
+            }catch(error){
+                console.error("Failed to add to favorite:", error);
+            }
+        }
+
+        async function loadFavoriteStores(){
+            const fs = document.getElementById("favorite-stores");
+            try{
+                const response = await fetch(backendAPI + "favorite_stores");
+                if(!response.ok) throw new Error("Network response was not ok");
+                const data = await response.json();
+                let i = 1;
+                data.forEach(store => {
+                    const sd = document.createElement("div");
+                    sd.className = "border rounded-lg p-3 hover:bg-gray-50 transition-colors";
+                    sd.innerHTML = `
+                        <div class="flex justify-between items-center cursor-pointer" onclick="toggleStoreDetails(&#39;fav${i}&#39;)">
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-800">${store.name}</h3>
+                                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                    <span>☆ ${store.rating}</span>
+                                    <span>$ ${store.price}</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-full text-sm transition-colors" onclick="toggleFavorite(event)">&lt;3</button>
+                                <svg id="fav${i}-arrow" class="w-4 h-4 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="fav${i}-details" class="collapse-content mt-3">
+                            <div class="text-sm text-gray-600 space-y-1">
+                                <p><strong>Address: </strong>${store.details.address}</p>
+                                <p><strong>Distance: </strong>${store.details.distance}</p>
+                                <p><strong>Business Hours: </strong>${store.details.open}</p>
+                                <p><strong>Phone: </strong>${store.details.phone}</p>
+                                <p><strong>Features: </strong>${store.details.others}</p>
+                            </div>
+                        </div>
+                    `;
+                    i += 1;
+                });
+            }catch (error){
+                console.error("Error fetching favorite stores:", error);
+                fs.innerHTML = `<p class="text-gray-500 text-center">Failed to load favorite stores.</p>`;
+            }
+        }
+
+        async function loadNearbyStores(){
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                
+                const ns = document.getElementById("nearby-stores-content").firstElementChild;
+                ns.innerHTML = "";
+                try{
+                    const response = await fetch(backendAPI + "nearby_stores?lat=" + lat + "&lng=" + lng);
+                    if(!response.ok) throw new Error("Network response was not ok");
+                    const data = await response.json();
+                    let i = 1;
+                    data.forEach(store => {
+                        const sd = document.createElement("div");
+                        sd.className = "border rounded-lg p-3 hover:bg-gray-50 transition-colors";
+                        sd.innerHTML = `
+                            <div class="flex justify-between items-center cursor-pointer" onclick="toggleStoreDetails(&#39;store${i}&#39;)">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800">${store.name}</h3>
+                                    <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                        <span>☆ ${store.rating}</span>
+                                        <span>$ ${store.price}</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button class="bg-pink-500 hover:bg-pink-600 text-white px-3 py-1 rounded-full text-sm transition-colors" onclick="toggleFavorite(event)">&lt;3</button>
+                                    <svg id="store${i}-arrow" class="w-4 h-4 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div id="store${i}-details" class="collapse-content mt-3">
+                                <div class="text-sm text-gray-600 space-y-1">
+                                    <p><strong>Address: </strong>${store.details.address}</p>
+                                    <p><strong>Distance: </strong>${store.details.distance}</p>
+                                    <p><strong>Business Hours: </strong>${store.details.open}</p>
+                                    <p><strong>Phone: </strong>${store.details.phone}</p>
+                                    <p><strong>Features: </strong>${store.details.others}</p>
+                                </div>
+                            </div>
+                        `;
+                        i += 1;
+                    });
+                }catch(error){
+                    console.error("Error fetching nearby stores:", error);
+                    ns.innerHTML = `<p class="text-gray-500 text-center">Failed to load favorite stores.</p>`;
+                }
+            }, function(error){
+                alert("Error: " + error.message);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+            loadFavoriteStores();
+            setInterval(() => {
+                loadNearbyStores();
+            }, 30000);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962a309ea4684a24',t:'MTc1MzA5NTU3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./web_files/saved_resource.html"></iframe>
+
+</body></html>
