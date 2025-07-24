@@ -1,4 +1,4 @@
-const backendAPI = "https://blocks-equity-lotus-spokesman.trycloudflare.com/";
+const backendAPI = "https://6d52714422dd.ngrok-free.app/";
 
         function toggleSection(sectionId) {
             const content = document.getElementById(sectionId + '-content');
