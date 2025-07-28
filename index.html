@@ -318,6 +318,8 @@
                     fs.appendChild(sd);
                     i += 1;
                 });
+                if(data.length === 0)
+                    fs.innerHTML = `<p class="text-gray-500 text-center">No favorite stores found.</p>`;
             }catch(error){
                 console.error("Failed to add to favorite:", error);
                 fs.innerHTML = `<p class="text-gray-500 text-center">Failed to load favorite stores.</p>`;
@@ -362,6 +364,8 @@
                     fs.appendChild(sd);
                     i += 1;
                 });
+                if(data.length === 0)
+                    fs.innerHTML = `<p class="text-gray-500 text-center">No favorite stores found.</p>`;
             }catch (error){
                 console.error("Error fetching favorite stores:", error);
                 fs.innerHTML = `<p class="text-gray-500 text-center">Failed to load favorite stores.</p>`;
@@ -413,9 +417,11 @@
                     ns.appendChild(sd);
                     i += 1;
                 });
+                if(data.length === 0)
+                    ns.innerHTML = `<p class="text-gray-500 text-center">No nearby stores found.</p>`;
             }catch(error){
                 console.error("Error fetching nearby stores:", error);
-                ns.innerHTML = `<p class="text-gray-500 text-center">Failed to load favorite stores.</p>`;
+                ns.innerHTML = `<p class="text-gray-500 text-center">Failed to load nearby stores.</p>`;
             }
         }
 
