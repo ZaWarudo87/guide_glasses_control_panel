@@ -281,12 +281,46 @@
         }
 
         async function addFavoriteStore(store, add){
+            const fs = document.getElementById("favorite-stores-content");
             try{
                 const response = await fetch(backendAPI + "add_favorite?add=" + add + "&place_id=" + store);
                 if(!response.ok) throw new Error("Network response was not ok");
-                loadFavoriteStores();
+                const data = await response.json();
+                fs.innerHTML = "";
+                let i = 1;
+                data.forEach(store => {
+                    const sd = document.createElement("div");
+                    sd.className = "border rounded-lg p-3 hover:bg-gray-50 transition-colors";
+                    sd.innerHTML = `
+                        <div class="flex justify-between items-center cursor-pointer" onclick="toggleStoreDetails(&#39;fav${i}&#39;)">
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-800">${store.name}</h3>
+                                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                    <span>☆ ${store.rating}</span>
+                                    <span>${store.price}</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-full text-sm transition-colors" data-id="${store.place_id}" onclick="toggleFavorite(event)">♡</button>
+                                <svg id="fav${i}-arrow" class="w-4 h-4 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="fav${i}-details" class="collapse-content mt-3">
+                            <div class="text-sm text-gray-600 space-y-1">
+                                <p><strong>Address: </strong>${store.details.address}</p>
+                                <p><strong>Distance: </strong>${store.details.distance} m</p>
+                                <p><strong>Business Hours: </strong>${store.details.open}</p>
+                            </div>
+                        </div>
+                    `;
+                    fs.appendChild(sd);
+                    i += 1;
+                });
             }catch(error){
                 console.error("Failed to add to favorite:", error);
+                fs.innerHTML = `<p class="text-gray-500 text-center">Failed to load favorite stores.</p>`;
             }
         }
 
