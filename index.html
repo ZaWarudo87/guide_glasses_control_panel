@@ -296,6 +296,7 @@
                 const response = await fetch(backendAPI + "favorite_stores");
                 if(!response.ok) throw new Error("Network response was not ok");
                 const data = await response.json();
+                fs.innerHTML = "";
                 let i = 1;
                 data.forEach(store => {
                     const sd = document.createElement("div");
