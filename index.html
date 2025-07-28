@@ -291,7 +291,7 @@
         }
 
         async function loadFavoriteStores(){
-            const fs = document.getElementById("favorite-stores");
+            const fs = document.getElementById("favorite-stores-content");
             try{
                 const response = await fetch(backendAPI + "favorite_stores");
                 if(!response.ok) throw new Error("Network response was not ok");
