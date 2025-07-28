@@ -283,7 +283,7 @@
         }
 
         async function addFavoriteStore(store, add){
-            const fs = document.getElementById("favorite-stores-content");
+            const fs = document.getElementById("favorite-stores-content").firstElementChild;
             try{
                 const response = await fetch(backendAPI + "add_favorite?add=" + add + "&place_id=" + store);
                 if(!response.ok) throw new Error("Network response was not ok");
@@ -329,7 +329,7 @@
         }
 
         async function loadFavoriteStores(){
-            const fs = document.getElementById("favorite-stores-content");
+            const fs = document.getElementById("favorite-stores-content").firstElementChild;
             try{
                 const response = await fetch(backendAPI + "favorite_stores");
                 if(!response.ok) throw new Error("Network response was not ok");
