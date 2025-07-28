@@ -30,7 +30,7 @@ const backendAPI = "https://blocks-equity-lotus-spokesman.trycloudflare.com/";
             e.preventDefault();
             e.stopPropagation();
             
-            if (e.target.classList.includes('bg-pink-500')) {
+            if (e.target.classList.contains('bg-pink-500')) {
                 e.target.classList.remove('bg-pink-500', 'hover:bg-pink-600');
                 e.target.classList.add('bg-gray-500', 'hover:bg-gray-600');
                 addFavoriteStore(e.target.closest('.flex-1').querySelector('h3').textContent, true);
