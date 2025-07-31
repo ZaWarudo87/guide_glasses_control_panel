@@ -425,39 +425,31 @@
                     gi.innerHTML = "";
                     const sd = document.createElement("div");
                     sd.className = "border rounded-lg p-3 hover:bg-gray-50";
-                    if("rating" in data){
-                        const color = data.favorite ? "gray" : "pink";
-                        sd.innerHTML = `
-                            <div class="flex justify-between items-center cursor-pointer" onclick="toggleStoreDetails(&#39;store-gaze&#39;)">
-                                <div class="flex-1">
-                                    <h3 class="font-semibold text-gray-800">${data.name}</h3>
-                                    <div class="flex items-center space-x-4 text-sm text-gray-600">
-                                        <span>☆ ${data.rating}</span>
-                                        <span>${data.price}</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <button class="bg-${color}-500 hover:bg-${color}-600 text-white px-3 py-1 rounded-full text-sm transition-colors" data-id="${data.place_id}" onclick="toggleFavorite(event)">♡</button>
-                                    <svg id="store-gaze-arrow" class="w-4 h-4 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div id="store-gaze-details" class="collapse-content mt-3">
-                                <div class="text-sm text-gray-600 space-y-1">
-                                    <p><strong>Address: </strong>${data.details.address}</p>
-                                    <p><strong>Distance: </strong>${data.details.distance} m</p>
-                                    <p><strong>Opening: </strong>${data.details.open}</p>
-                                </div>
-                            </div>
-                        `
-                    }else
-                        sd.innerHTML = `
-                            <div class="border rounded-lg p-3 hover:bg-gray-50">
+                    sd.innerHTML = "rating" in data
+                    ? `
+                        <div class="flex justify-between items-center cursor-pointer" onclick="toggleStoreDetails(&#39;store-gaze&#39;)">
+                            <div class="flex-1">
                                 <h3 class="font-semibold text-gray-800">${data.name}</h3>
-                                <p class="text-sm text-gray-600 mt-1">${data.details}</p>
+                                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                    <span>☆ ${data.rating}</span>
+                                    <span>${data.price}</span>
+                                </div>
                             </div>
-                        `;
+                        </div>
+                        <div id="store-gaze-details" class="collapse-content mt-3 expanded">
+                            <div class="text-sm text-gray-600 space-y-1">
+                                <p><strong>Address: </strong>${data.details.address}</p>
+                                <p><strong>Distance: </strong>${data.details.distance} m</p>
+                                <p><strong>Opening: </strong>${data.details.open}</p>
+                            </div>
+                        </div>
+                    `
+                    : `
+                        <div class="border rounded-lg p-3 hover:bg-gray-50">
+                            <h3 class="font-semibold text-gray-800">${data.name}</h3>
+                            <p class="text-sm text-gray-600 mt-1">${data.details}</p>
+                        </div>
+                    `;
                     gi.appendChild(sd);
                 }
             }catch(error){
