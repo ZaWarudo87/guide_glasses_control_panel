@@ -205,7 +205,6 @@
     </div>
     <script>
 const backendAPI = "https://blocks-equity-lotus-spokesman.trycloudflare.com/";
-let selectedOptions = [];
 
 function toggleSection(sectionId){
     const content = document.getElementById(sectionId + "-content");
@@ -485,13 +484,9 @@ async function setMain(){
     }
 }
 
-async function updateDisplaySettings(me){
-    if(me.checked)
-        if(!selectedOptions.includes(me.value))
-            selectedOptions.push(me.value);
-    else
-        selectedOptions = selectedOptions.filter(v => v !== me.value);
-
+async function updateDisplaySettings(){
+    selectedOptions = Array.from(document.querySelectorAll("input[type='checkbox']:checked"))
+                           .map(cb => cb.value);
     try{
         const response = await fetch(backendAPI + "update_display_settings", {
             method: "POST",
@@ -500,12 +495,12 @@ async function updateDisplaySettings(me){
             },
             body: JSON.stringify(selectedOptions)
         });
-
         if(!response.ok) throw new Error("Network response was not ok");
     }catch(error){
         console.error("Error updating display settings:", error);
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", function(){
     if(!navigator.geolocation){
@@ -539,7 +534,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
         checkbox.addEventListener("change", function () {
-            updateDisplaySettings(this);
+            updateDisplaySettings();
         });
     });
 });
