@@ -199,21 +199,7 @@
             </div>
             <div id="gaze-items-content" class="collapse-content expanded">
                 <div class="p-4 space-y-3">
-                    <div class="border rounded-lg p-3 hover:bg-gray-50">
-                        <h3 class="font-semibold text-gray-800">iPhone 15 Pro</h3>
-                        <p class="text-sm text-gray-600 mt-1">Apple最新旗艦手機，配備A17 Pro晶片，支援USB-C接口，具備鈦金屬機身設計。</p>
-                        <div class="flex items-center mt-2 text-xs text-gray-500">
-                            <span>注視時間：8.5秒</span>
-                        </div>
-                    </div>
-                    
-                    <div class="border rounded-lg p-3 hover:bg-gray-50">
-                        <h3 class="font-semibold text-gray-800">Nike Air Max 270</h3>
-                        <p class="text-sm text-gray-600 mt-1">Nike經典氣墊跑鞋，採用Max Air氣墊技術，提供優異的緩震效果和舒適度。</p>
-                        <div class="flex items-center mt-2 text-xs text-gray-500">
-                            <span>注視時間：6.2秒</span>
-                        </div>
-                    </div>
+                    <p class="text-gray-500 text-center">None</p>
                 </div>
             </div>
         </div>
@@ -427,6 +413,57 @@
             }
         }
 
+        async function loadGazeOverFive(){
+            const gi = document.getElementById("gaze-items-content").firstElementChild;
+            try{
+                const response = await fetch(backendAPI + "gaze_over_five");
+                if(!response.ok) throw new Error("Network response was not ok");
+                const data = await response.json();
+                gi.innerHTML = "";
+                const sd = document.createElement("div");
+                sd.className = "border rounded-lg p-3 hover:bg-gray-50";
+                if("rating" in data){
+                    const color = data.favorite ? "gray" : "pink";
+                    sd.innerHTML = `
+                        <div class="flex justify-between items-center cursor-pointer" onclick="toggleStoreDetails(&#39;store-gaze&#39;)">
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-800">${data.name}</h3>
+                                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                    <span>☆ ${data.rating}</span>
+                                    <span>${data.price}</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="bg-${color}-500 hover:bg-${color}-600 text-white px-3 py-1 rounded-full text-sm transition-colors" data-id="${data.place_id}" onclick="toggleFavorite(event)">♡</button>
+                                <svg id="store-gaze-arrow" class="w-4 h-4 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="store-gaze-details" class="collapse-content mt-3">
+                            <div class="text-sm text-gray-600 space-y-1">
+                                <p><strong>Address: </strong>${data.details.address}</p>
+                                <p><strong>Distance: </strong>${data.details.distance} m</p>
+                                <p><strong>Opening: </strong>${data.details.open}</p>
+                            </div>
+                        </div>
+                    `
+                }else
+                    sd.innerHTML = `
+                        <div class="border rounded-lg p-3 hover:bg-gray-50">
+                            <h3 class="font-semibold text-gray-800">${data.name}</h3>
+                            <p class="text-sm text-gray-600 mt-1">${data.details}</p>
+                        </div>
+                    `;
+                gi.appendChild(sd);
+                if(data.length === 0)
+                    gi.innerHTML = `<p class="text-gray-500 text-center">None</p>`;
+            }catch(error){
+                console.error("Error fetching gaze:", error);
+                ns.innerHTML = `<p class="text-gray-500 text-center">Failed to load objects.</p>`;
+            }
+        }
+
         async function initLogin(){
             try{
                 const response = await fetch(backendAPI + "init");
@@ -448,6 +485,9 @@
             setInterval(() => {
                 loadNearbyStores();
             }, 30000);
+            setInterval(() => {
+                loadGazeOverFive();
+            }, 5000);
         });
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962a309ea4684a24',t:'MTc1MzA5NTU3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./web_files/saved_resource.html"></iframe>
