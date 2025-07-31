@@ -538,7 +538,9 @@ document.addEventListener("DOMContentLoaded", function(){
     }, 1000);
 
     document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
-        checkbox.addEventListener("change", updateDisplaySettings(this));
+        checkbox.addEventListener("change", function () {
+            updateDisplaySettings(this);
+        });
     });
 });
     </script>
