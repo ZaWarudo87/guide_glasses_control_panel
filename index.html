@@ -485,7 +485,13 @@ async function setMain(){
     }
 }
 
-async function updateDisplaySettings(){
+async function updateDisplaySettings(me){
+    if(me.checked)
+        if(!selectedOptions.includes(me.value))
+            selectedOptions.push(me.value);
+    else
+        selectedOptions = selectedOptions.filter(v => v !== me.value);
+
     try{
         const response = await fetch(backendAPI + "update_display_settings", {
             method: "POST",
@@ -494,6 +500,7 @@ async function updateDisplaySettings(){
             },
             body: JSON.stringify(selectedOptions)
         });
+
         if(!response.ok) throw new Error("Network response was not ok");
     }catch(error){
         console.error("Error updating display settings:", error);
@@ -531,15 +538,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }, 1000);
 
     document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
-        checkbox.addEventListener("change", function(){
-            console.log(this)
-            if(this.checked)
-                if(!selectedOptions.includes(this.value))
-                    selectedOptions.push(this.value);
-            else
-                selectedOptions = selectedOptions.filter(v => v !== this.value);
-            updateDisplaySettings()
-        });
+        checkbox.addEventListener("change", updateDisplaySettings(this));
     });
 });
     </script>
