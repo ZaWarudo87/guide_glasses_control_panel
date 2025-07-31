@@ -494,12 +494,15 @@ document.addEventListener("DOMContentLoaded", function(){
     fetch(backendAPI + "init")
         .then(response => {
             if (!response.ok) throw new Error("Network response was not ok");
+            return response.json()
         })
-        .then(data.forEach(item => {
-            if(!selectedOptions.includes(item))
-                selectedOptions.push(item);
-            document.querySelector(`input[type="checkbox"][value="${item}"]`).checked = true;
-        }))
+        .then(data => {
+            data.forEach(item => {
+                if(!selectedOptions.includes(item))
+                    selectedOptions.push(item);
+                document.querySelector(`input[type="checkbox"][value="${item}"]`).checked = true;
+            });
+        })
         .catch(error => {
             console.error("Error during initialization:", error);
         });
