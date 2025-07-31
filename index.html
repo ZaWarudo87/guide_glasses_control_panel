@@ -485,6 +485,21 @@ async function setMain(){
     }
 }
 
+async function updateDisplaySettings(){
+    try{
+        const response = await fetch(backendAPI + "update_display_settings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(selectedOptions)
+        });
+        if(!response.ok) throw new Error("Network response was not ok");
+    }catch(error){
+        console.error("Error updating display settings:", error);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function(){
     if(!navigator.geolocation){
         alert("Geolocation is not supported by this browser.");
@@ -522,6 +537,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     selectedOptions.push(this.value);
             else
                 selectedOptions = selectedOptions.filter(v => v !== this.value);
+            updateDisplaySettings()
         });
     });
 });
