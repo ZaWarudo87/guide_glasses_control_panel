@@ -406,8 +406,9 @@ async function loadNearbyStores(){
 
 async function loadGazeOverFive(){
     const gi = document.getElementById("gaze-items-content").firstElementChild;
+    const [lat, lng] = await getGeoPos();
     try{
-        const response = await fetch(backendAPI + "gaze_over_five");
+        const response = await fetch(backendAPI + "gaze_over_five?lat=" + lat + "&lng=" + lng);
         if(!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
         if(data === null)
