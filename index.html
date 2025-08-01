@@ -184,6 +184,8 @@
     </div>
     <script>
 const backendAPI = "https://lawyers-content-assumptions-classroom.trycloudflare.com/";
+let global_lat = 0;
+let global_lng = 0;
 
 function toggleSection(sectionId){
     const content = document.getElementById(sectionId + "-content");
@@ -251,8 +253,9 @@ async function getGeoPos(){
 }
 
 async function initMap(){
-    const [la, ln] = await getGeoPos();
-    const myPos = {lat: la, lng: ln};
+    // const [la, ln] = await getGeoPos();
+    // const myPos = {lat: la, lng: ln};
+    const myPos = {lat: global_lat, lng: global_lng};
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 15,
         center: myPos,
@@ -352,7 +355,9 @@ async function loadFavoriteStores(){
 }
 
 async function loadNearbyStores(){
-    const [lat, lng] = await getGeoPos();
+    // const [lat, lng] = await getGeoPos();
+    const lat = global_lat;
+    const lng = global_lng;
     if(lat == 0 && lng == 0){
         console.error("Failed to get current location.");
         return;
@@ -406,7 +411,9 @@ async function loadNearbyStores(){
 
 async function loadGazeOverFive(){
     const gi = document.getElementById("gaze-items-content").firstElementChild;
-    const [lat, lng] = await getGeoPos();
+    // const [lat, lng] = await getGeoPos();
+    const lat = global_lat;
+    const lng = global_lng;
     try{
         const response = await fetch(backendAPI + "gaze_over_five?lat=" + lat + "&lng=" + lng);
         if(!response.ok) throw new Error("Network response was not ok");
@@ -481,6 +488,21 @@ async function updateDisplaySettings(){
     }
 }
 
+navigator.geolocation.watchPosition(
+    (position) => {
+        const { latitude, longitude, accuracy } = position.coords;
+        global_lat = latitude
+        global_lng = longitude
+    },
+    (error) => {
+        console.error("Get Geolocation Error:", error);
+    },
+    {
+        enableHighAccuracy: true,
+        maximumAge: 0,
+        timeout: 10000
+    }
+);
 
 document.addEventListener("DOMContentLoaded", function(){
     if(!navigator.geolocation){
@@ -520,4 +542,5 @@ document.addEventListener("DOMContentLoaded", function(){
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962a309ea4684a24',t:'MTc1MzA5NTU3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./web_files/saved_resource.html"></iframe>
 
 </body></html>
+
 
